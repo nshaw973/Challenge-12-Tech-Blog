@@ -1,0 +1,39 @@
+:root {
+    --black: #000000;
+    --very-dark-gray: #212F3C;
+    --charcoal: #2C3E50;
+    --light-gray: #DADFE1;
+    --white: #FFFFFF;
+    --blue: #6388c2;
+}
+
+/* Header Items */
+.header-style {
+    background-color: var(--charcoal);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--white);
+    width: 100%;
+    max-height: 20%;
+    font-size: 30px;
+    padding-left: 1%;
+}
+
+.login-button {
+    background-color: transparent;
+    color: var(--white);
+    border: none;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 0;
+    padding-right: 5%;
+}
+
+.login-button:hover {
+    color: var(--white);
+}
+/* ------------------------------- */
