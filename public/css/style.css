@@ -37,3 +37,34 @@
     color: var(--white);
 }
 /* ------------------------------- */
+/* Cards */
+.card-container {
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
+    width: 30%;
+    border: solid 2px black;
+}
+
+.card-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: var(--charcoal);
+    color: var(--white);
+}
+
+.card-body {
+    color: var(--black);
+    font-size: 20px;
+    padding: 10px;
+}
