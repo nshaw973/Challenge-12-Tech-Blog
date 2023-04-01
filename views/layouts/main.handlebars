@@ -13,11 +13,19 @@
 <header>
     <div class="container d-flex justify-content-between header-style">
         <a href="/" class="title">Tech Blog</a>
-        <a href="/login" class="login-button">Login</a>
+        <div class="nav-bar">
+        {{#if logged_in}}
+        <a href="/dashboard" class="nav-button">Dashboard</a>
+        <button class="nav-button" id="logout">logout</button>
+        {{else}}
+        <a href="/login" class="nav-button">Login</a>
+        {{/if}}
+        </div>
     </div>
 </header>
 <main class="card-container">
 {{{ body }}}
 </main>
+<script src="./js/logout.js"></script>
 </body>
 </html> 

@@ -20,7 +20,7 @@
     padding-left: 1%;
 }
 
-.login-button {
+.nav-button {
     background-color: transparent;
     color: var(--white);
     border: none;
@@ -28,11 +28,17 @@
     cursor: pointer;
     font-size: 25px;
     font-weight: bold;
-    padding: 0;
-    padding-right: 5%;
+    padding-right: 15%;
 }
 
-.login-button:hover {
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    padding-right: 3%;
+    justify-content: space-evenly;
+}
+
+.nav-button:hover {
     color: var(--white);
 }
 /* ------------------------------- */
