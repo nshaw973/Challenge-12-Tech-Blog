@@ -1,1 +1,22 @@
-<h1>profile</h1>
+<div class="profile-container">
+    {{!-- Welcome --}}
+    <h1 class="welcome">Welcome back {{user.name}}!!!</h1>
+    {{!-- New Post --}}
+    <form class="form-style">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title"><br><br>
+        <label for="content">New Post:</label><br>
+        <textarea id="content" name="content" rows="10" cols="50" style="resize: none;"></textarea><br><br>
+        <input type="submit" value="Submit Post">
+    </form>
+    {{!-- Previous Posts --}}
+    {{#if user.blogs.length}}
+    <h1 class="welcome">Previous Posts</h1>
+    {{#each user.blogs as |post|}}
+    {{> blogpost-details}}
+    {{/each}}
+    {{/if}}
+
+</div>
+
+<script src="./js/dashboard.js"></script>
