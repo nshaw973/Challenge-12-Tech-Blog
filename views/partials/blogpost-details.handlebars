@@ -1,13 +1,14 @@
-<div class="card">
+<div class="card" postId="{{id}}" userId="{{user_id}}">
   <div class="card-content">
     <h2 class="card-title">{{title}}</h2>
+        {{#if user.name}}
+        <h3 class="post-author">Posted by: {{user.name}}</h3>
+        {{/if}}
   </div>
   <div class="card-body">
     <p class="card-text">{{post}}</p>
   </div>
   <div class="post-by">
-    {{#if user.name}}
-    <h3> -- {{user.name}}</h3>
-    {{/if}}
+    <h3>Posted on: {{format_date date_created}}</h3>
   </div>
 </div>

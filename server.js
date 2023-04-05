@@ -10,12 +10,13 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const hbs = exphbs.create({});
+const helpers = require('./utils/helpers')
+const hbs = exphbs.create({ helpers });
 
 const sess = {
     secret: 'I am Error',
     cookie: {
-      maxAge: 180000,
+      maxAge: 720000,
       httpOnly: true,
       secure: false,
       sameSite: 'strict',
@@ -28,6 +29,7 @@ const sess = {
   };
 
 app.use(session(sess));
+
 
 //HandleBars
 app.engine('handlebars', hbs.engine);

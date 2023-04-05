@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
 
         res.render('homepage', {
             blogPosts,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
         });
     } catch (err) {
         res.status(500)
@@ -37,8 +37,9 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
         res.render('dashboard', {
             user,
-            logged_in: req.session.logged_in
-        })
+            logged_in: req.session.logged_in,
+            current_id: req.session.user_id
+        });
     } catch(err) {
         res.redirect('/');
     };

@@ -53,13 +53,15 @@ html, body {
 .background-main {
     display: flex;
     justify-content: center;
-    height: 100%;
+    min-height: 100%;
+    max-height: fit-content;
 }
 .card-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 70%;
-    height: 100%;
+    min-height: 100%;
     box-shadow: -5px 10px 90px rgba(0, 0, 0, 0.2), 5px 10px 90px rgba(0, 0, 0, 0.2);
 }
 
@@ -67,20 +69,34 @@ html, body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin: 20px auto;
     width: 60%;
     height: fit-content;
     border: solid 2px black;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 .card-content {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    justify-content:flex-start;
+    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
     width: 100%;
     background-color: var(--charcoal);
     color: var(--white);
+    text-align: left;
+}
+
+.card-title {
+    width: 50%;
+    text-align: left;
+    padding-left: 10px;   
+}
+.post-author{
+    width: 45%;
+    text-align: right;
+    padding-right: 10px;
 }
 
 .post-by {
@@ -163,4 +179,29 @@ html, body {
     padding: 2% 10% 2% 10%;
     margin: 0% 10% 4% 10%;
     border-bottom: var(--black) solid 3px;
+}
+
+.dashboard-posts {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+/* ------------------------------- */
+/* Post Styling */
+
+.post-options {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 1%;
+    border: black solid 2px;
+}
+
+.btn {
+    width: 100%;
+    margin-bottom: 20%;
+}
+
+.delete-btn {
+    background-color: rgb(240, 120, 120);
+    color: var(--white);
 }

@@ -11,10 +11,16 @@
     </form>
     {{!-- Previous Posts --}}
     {{#if user.blogs.length}}
-    <h1 class="welcome">Previous Posts</h1>
-    {{#each user.blogs as |post|}}
-    {{> blogpost-details}}
-    {{/each}}
+        <h1 class="welcome">Previous Posts</h1>
+        {{#each user.blogs as |post|}}
+            <div class="dashboard-posts">
+            {{> blogpost-details}}
+                <ul class="post-options">
+                    <li><button class="edit-btn btn" post-id="{{id}}">EDIT</button></li>
+                    <li><button class="delete-btn btn" post-id="{{id}}">DELETE</button></li>
+                </ul>
+            </div>
+        {{/each}}
     {{/if}}
 
 </div>
