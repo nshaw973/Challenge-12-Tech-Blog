@@ -2,13 +2,7 @@
     {{!-- Welcome --}}
     <h1 class="welcome">Welcome back {{user.name}}!!!</h1>
     {{!-- New Post --}}
-    <form class="form-style">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title"><br><br>
-        <label for="content">New Post:</label><br>
-        <textarea id="content" name="content" rows="10" cols="50" style="resize: none;"></textarea><br><br>
-        <input type="submit" id="submit-post" value="Submit Post">
-    </form>
+    {{> form-details}}
     {{!-- Previous Posts --}}
     {{#if user.blogs.length}}
         <h1 class="welcome">Current Blogposts</h1>
@@ -16,7 +10,7 @@
             <div class="dashboard-posts">
             {{> blogpost-details}}
                 <ul class="post-options">
-                    <li><button class="edit-btn btn" post-id="{{id}}">EDIT</button></li>
+                    <a class="edit-btn btn" href="/dashboard/{{id}}">EDIT</a>
                     <li><button class="delete-btn btn" post-id="{{id}}">DELETE</button></li>
                 </ul>
             </div>

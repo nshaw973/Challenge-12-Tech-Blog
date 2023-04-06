@@ -23,10 +23,7 @@ const createPost = async (event) => {
 const postButton = document.querySelector('#submit-post');
 postButton.addEventListener('click', createPost);
 
-//Edits the post.
-
 //Deletes the post.
-
 const deletePost = async (event) => {
     // How we get each individual buttons id that matches the id in the DB
     if (event.target.hasAttribute('post-id')) {

@@ -45,4 +45,21 @@ router.get('/dashboard', withAuth, async (req, res) => {
     };
 });
 
+router.get('/dashboard/:id', withAuth, async (req, res) => {
+    try {
+        const blogData = await Blog.findByPk(req.params.id, {
+            include: [{ model: User, attributes: ['name'] }]
+        })
+        
+        const blog = blogData.get({ plain: true })
+        res.render('edit', {
+            blog,
+            id: req.params.id,
+            logged_in: req.session.logged_in,
+        })
+    } catch (err) {
+        res.redirect('/');
+    }
+})
+
 module.exports = router;

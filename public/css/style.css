@@ -194,14 +194,31 @@ html, body {
     margin-bottom: 2%;
     padding: 1%;
     border: black solid 2px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
 }
 
 .btn {
     width: 100%;
-    margin-bottom: 20%;
+    border: var(--black) solid 2px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.edit-btn:hover {
+    background-color: var(--charcoal);
+    color: #FFFFFF;
 }
 
 .delete-btn {
-    background-color: rgb(240, 120, 120);
+    background-color: rgb(235, 98, 98);
     color: var(--white);
+}
+
+.delete-btn:hover {
+    background-color: rgb(255, 0, 0);
+    color: var(--white);
+    cursor: pointer;
 }
