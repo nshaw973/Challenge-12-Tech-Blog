@@ -1,0 +1,18 @@
+<div class="blog-container" post-id="{{blog.id}}">
+    {{> blogpost-details}}
+    {{#each comments as |comment|}}
+    {{> comment-details}}
+    {{/each}}
+    {{#if logged_in}}
+    <form class="comment-container">
+        <textarea id="comment" name="comment" placeholder="Add Comment"></textarea>
+        <button type="submit" id="submit-comment">Post Comment</button>
+    </form>
+    {{else}}
+    <div>
+        <h1>Please <a href="/login" style="color: rgb(82, 79, 255)">Log in</a> to Add a Comment</h1>
+    </div>
+    {{/if}}
+</div>
+
+<script src="./js/comment.js"></script>

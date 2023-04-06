@@ -89,14 +89,16 @@ html, body {
 }
 
 .card-title {
-    width: 50%;
     text-align: left;
-    padding-left: 10px;   
+    padding-left: 10px;
+    font-size: 25px;
+    width: fit-content;
 }
 .post-author{
     width: 45%;
     text-align: right;
     padding-right: 10px;
+    width: fit-content;
 }
 
 .post-by {
@@ -120,6 +122,7 @@ html, body {
     width: 90%;
     margin: 50px;
 }
+
 .headers {
     background-color: var(--charcoal);
     color: var(--white);
@@ -221,4 +224,26 @@ html, body {
     background-color: rgb(255, 0, 0);
     color: var(--white);
     cursor: pointer;
+}
+
+/* ------------------------------- */
+/* View Post */
+
+.blog-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 3%;
+}
+
+.blog-container div {
+    width: 100%;
+}
+
+.comment-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
 }

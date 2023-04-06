@@ -16,7 +16,7 @@ Comment.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                max: 128
+                max: 255
             },
         },
         user_id: {
