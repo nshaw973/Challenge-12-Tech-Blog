@@ -39,6 +39,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/dashboard/js/logout.js', function(req, res) {
+  res.set('Content-Type', 'application/javascript');
+  res.sendFile(__dirname + '/public/js/logout.js');
+});
+
+app.get('/dashboard/js/edit.js', function(req, res) {
+  res.set('Content-Type', 'application/javascript');
+  res.sendFile(__dirname + '/public/js/edit.js');
+});
+
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {

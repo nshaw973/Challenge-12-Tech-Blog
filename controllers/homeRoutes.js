@@ -48,10 +48,14 @@ router.get('/dashboard', withAuth, async (req, res) => {
 router.get('/dashboard/:id', withAuth, async (req, res) => {
     try {
         const blogData = await Blog.findByPk(req.params.id, {
-            include: [{ model: User, attributes: ['name'] }]
+            include: [{ model: User, attributes: ['name', 'id'] }]
         })
-        
         const blog = blogData.get({ plain: true })
+        // Prevents user from typing in the ID of a different blog that doesn't belong to them
+        if(req.session.user_id !== blog.user_id) {
+            res.redirect('/dashboard')
+            return;
+        }
         res.render('edit', {
             blog,
             id: req.params.id,
