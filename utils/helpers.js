@@ -4,13 +4,11 @@ const Handlebars = require('handlebars');
 Handlebars.registerHelper('eq', (a, b) => {
     return a === b;
   });
-
+//Exporting to handlebars
 module.exports = {
 
-    delete_icon: () => {
-            return `<span for="img" aria-label="delete">X</span>`;
-    },
     format_date: (date) => {
         return date.toLocaleDateString();
     },
 };
+
