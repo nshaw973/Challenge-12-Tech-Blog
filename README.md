@@ -1,7 +1,8 @@
 # 14 Model-View-Controller (MVC): Tech Blog
 
-
 ## Deployed Application
+
+[Deployed Tech Blog](https://limitless-harbor-65141.herokuapp.com/)
 
 ## Task
 
