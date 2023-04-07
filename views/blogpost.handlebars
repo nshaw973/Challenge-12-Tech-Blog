@@ -1,11 +1,13 @@
 <div class="blog-container" post-id="{{blog.id}}">
     {{> blogpost-details}}
+    {{#if comments}}
     {{#each comments as |comment|}}
     <div class="comment-container">
         <h3 class="user-comment">{{comment.user.name}}</h3>
         <p class="indv-comment">{{comment.comment}}</p>
     </div>
     {{/each}}
+    {{/if}}
     {{#if logged_in}}
     <form class="add-comment-container">
         <textarea id="comment" name="comment" placeholder="Add Comment"></textarea>

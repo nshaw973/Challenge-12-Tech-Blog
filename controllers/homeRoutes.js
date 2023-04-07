@@ -1,15 +1,16 @@
-const router = require("express").Router();
-const { Blog, User, Comment } = require("../models");
-const withAuth = require("../utils/auth");
+const router = require('express').Router();
+const { Blog, User, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
 // Main page
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const blogData = await Blog.findAll({
-      include: [{ model: User, attributes: ["name"] }],
+      include: [{ model: User, attributes: ['name'] }],
+      order: [['id', 'DESC']],
     });
     const blogPosts = blogData.map((posts) => posts.get({ plain: true }));
-    res.render("homepage", {
+    res.render('homepage', {
       blogPosts,
       logged_in: req.session.logged_in,
     });
@@ -19,73 +20,71 @@ router.get("/", async (req, res) => {
 });
 
 //Login / Signup Page
-router.get("/login", (req, res) => {
+router.get('/login', (req, res) => {
   try {
-    res.render("login");
+    res.render('login');
   } catch (err) {
-    res.redirect("/");
+    res.redirect('/');
   }
 });
 
 // User Profile/Dashboard
-router.get("/dashboard", withAuth, async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ["password"] },
+      attributes: { exclude: ['password'] },
       include: [{ model: Blog }],
     });
     const user = userData.get({ plain: true });
 
-    res.render("dashboard", {
+    res.render('dashboard', {
       user,
       logged_in: req.session.logged_in,
       current_id: req.session.user_id,
     });
   } catch (err) {
-    res.redirect("/");
+    res.redirect('/');
   }
 });
 
 // Specific blog post to edit
-router.get("/dashboard/:id", withAuth, async (req, res) => {
+router.get('/dashboard/:id', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
-      include: [{ model: User, attributes: ["name", "id"] }],
+      include: [{ model: User, attributes: ['name', 'id'] }],
     });
     const blog = blogData.get({ plain: true });
     // Prevents user from typing in the ID of a different blog that doesn't belong to them
     if (req.session.user_id !== blog.user_id) {
-      res.redirect("/dashboard");
+      res.redirect('/dashboard');
       return;
     }
-    res.render("edit", {
+    res.render('edit', {
       blog,
       id: req.params.id,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    res.redirect("/");
+    res.redirect('/');
   }
 });
 
 // Goes to a specific blogpost and it's corresponding comments
-router.get("/blog/:id", async (req, res) => {
+router.get('/blog/:id', async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
-      include: [{ model: User }, { model: Comment, include: ["user"] }],
+      include: [{ model: User }, { model: Comment, include: ['user'] }],
     });
 
     const blog = blogData.get({ plain: true });
-    console.log(blog.comments);
-    res.render("blogpost", {
+    res.render('blogpost', {
       ...blog,
-      comment_user: blog.comments[0].user.name,
       id: req.params.id,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
     console.log(err);
-    res.redirect("/");
+    res.redirect('/');
   }
 });
 
