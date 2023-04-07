@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
-const withAuth = require('../../utils/auth')
+const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
   try {
@@ -11,10 +11,10 @@ router.post('/', withAuth, async (req, res) => {
       user_id: req.session.user_id,
     });
     // Takes the newpost const and posts into blog table
-    res.status(200).json(newComment)
+    res.status(200).json(newComment);
   } catch (err) {
-    res.status(400).json('Unable to create a new post')
-  };
+    res.status(400).json('Unable to create a new post');
+  }
 });
 
-module.exports = router
+module.exports = router;

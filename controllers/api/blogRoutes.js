@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Blog } = require('../../models');
-const withAuth = require('../../utils/auth')
+const withAuth = require('../../utils/auth');
 
 // Creates new blogpost
 router.post('/', withAuth, async (req, res) => {
@@ -12,10 +12,10 @@ router.post('/', withAuth, async (req, res) => {
       user_id: req.session.user_id,
     });
     // Takes the newpost const and posts into blog table
-    res.status(200).json(newPost)
+    res.status(200).json(newPost);
   } catch (err) {
-    res.status(400).json('Unable to create a new post')
-  };
+    res.status(400).json('Unable to create a new post');
+  }
 });
 
 // Updates blogpost
@@ -23,19 +23,19 @@ router.put('/:id', withAuth, async (req, res) => {
   try {
     const editPost = await Blog.update(
       {
-        ...req.body
+        ...req.body,
       },
       {
         where: {
           id: req.params.id,
-          user_id: req.session.user_id
-        }
+          user_id: req.session.user_id,
+        },
       }
     );
-    res.status(200).json(editPost)
+    res.status(200).json(editPost);
   } catch (err) {
-    res.status(400).json('Unable to update post')
-  };
+    res.status(400).json('Unable to update post');
+  }
 });
 
 // Deletes blogpost through the red delete button in dashboard
@@ -59,4 +59,4 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
-module.exports = router
+module.exports = router;

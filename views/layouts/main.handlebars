@@ -1,33 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>Tech Blogspot</title>
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+    <link rel='stylesheet' href='/css/reset.css' />
+    <link rel='stylesheet' href='/css/style.css' />
+  </head>
 
-<body>
-<header>
-    <div class="container d-flex justify-content-between header-style">
-        <a href="/" class="title">Tech Blog</a>
-        <div class="nav-bar">
-        {{#if logged_in}}
-        <a href="/dashboard" class="nav-button">Dashboard</a>
-        <button class="nav-button" id="logout">Logout</button>
-        {{else}}
-        <a href="/login" class="nav-button">Login</a>
-        {{/if}}
+  <body>
+    <header>
+      <div class='container d-flex justify-content-between header-style'>
+        <a href='/' class='title'>Tech Blog</a>
+        <div class='nav-bar'>
+          {{#if logged_in}}
+            <a href='/dashboard' class='nav-button'>Dashboard</a>
+            <button class='nav-button' id='logout'>Logout</button>
+          {{else}}
+            <a href='/login' class='nav-button'>Login</a>
+          {{/if}}
         </div>
-    </div>
-</header>
-<main class="background-main">
-    <section class="card-container">
-    {{{ body }}}
-    </section>
-</main>
-<script src="./js/logout.js"></script>
-</body>
-</html> 
+      </div>
+    </header>
+    <main class='background-main'>
+      <section class='card-container'>
+        {{{body}}}
+      </section>
+    </main>
+    <script src='./js/logout.js'></script>
+  </body>
+</html>

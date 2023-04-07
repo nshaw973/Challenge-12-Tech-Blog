@@ -12,7 +12,7 @@ router.post('/signup', async (req, res) => {
     });
   } catch (err) {
     res.status(400).json(err);
-  };
+  }
 });
 
 // User logs in based on matching credentials in DB
@@ -20,13 +20,13 @@ router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
     if (!userData) {
-      window.prompt('Error with login, check email or password and try again')
+      window.prompt('Error with login, check email or password and try again');
       return;
     }
     // Checking pasword with bcrypt, which is part of the user class model
     const validPassword = await userData.checkPassword(req.body.password);
     if (!validPassword) {
-      window.prompt('Error with login, check email or password and try again')
+      window.prompt('Error with login, check email or password and try again');
       return;
     }
     // after succesful login, saves the session data for the current user_id, and the logged in status turns to true
@@ -38,7 +38,7 @@ router.post('/login', async (req, res) => {
   } catch (err) {
     res.status(400).json('An error has occured');
   }
-})
+});
 
 // logs user out
 router.post('/logout', (req, res) => {
