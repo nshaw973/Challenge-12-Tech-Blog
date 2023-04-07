@@ -5,19 +5,19 @@
     {{> form-details}}
     {{!-- Previous Posts --}}
     {{#if user.blogs.length}}
-        <h1 class="welcome">Current Blogposts</h1>
-        {{#each user.blogs as |post|}}
-            <div class="dashboard-posts">
-            {{> blogpost-details}}
-                <ul class="post-options">
-                    <a class="edit-btn btn" href="/dashboard/{{id}}">EDIT</a>
-                    <li><button class="delete-btn btn" post-id="{{id}}">DELETE</button></li>
-                </ul>
-            </div>
-        {{/each}}
-        {{else}}
-        {{!-- Only when the user doesn't have any posts to load --}}
-        <h1 class="welcome">No Current Blogposts</h1>
+    <h1 class="welcome">Current Blogposts</h1>
+    {{#each user.blogs as |post|}}
+    <div class="dashboard-posts">
+        {{> blogpost-details}}
+        <ul class="post-options">
+            <a class="edit-btn btn" href="/dashboard/{{id}}">EDIT</a>
+            <li><button class="delete-btn btn" post-id="{{id}}">DELETE</button></li>
+        </ul>
+    </div>
+    {{/each}}
+    {{else}}
+    {{!-- Only when the user doesn't have any posts to load --}}
+    <h1 class="welcome">No Current Blogposts</h1>
     {{/if}}
 
 </div>

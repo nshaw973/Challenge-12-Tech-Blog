@@ -10,7 +10,7 @@ Comment.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true    
+            autoIncrement: true
         },
         comment: {
             type: DataTypes.STRING,
@@ -31,15 +31,15 @@ Comment.init(
             references: {
                 model: 'blog',
                 key: 'id'
-            }    
+            }
         }
     },
-    {  
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'comment',
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'comment',
     }
 )
 

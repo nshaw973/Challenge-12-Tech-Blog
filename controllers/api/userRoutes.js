@@ -2,17 +2,17 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 // Creates new user, and tehn logs them in
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
   try {
     const userData = await User.create(req.body);
-      req.session.save(() => {
+    req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
       res.status(200).json(userData);
     });
-    } catch (err) {
-      res.status(400).json(err);
-    };
+  } catch (err) {
+    res.status(400).json(err);
+  };
 });
 
 // User logs in based on matching credentials in DB
@@ -31,13 +31,13 @@ router.post('/login', async (req, res) => {
     }
     // after succesful login, saves the session data for the current user_id, and the logged in status turns to true
     req.session.save(() => {
-    req.session.user_id = userData.id;
-    req.session.logged_in = true;    
-    res.redirect('/');
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+      res.redirect('/');
     });
-    } catch (err) {
-      res.status(400).json('An error has occured');
-    }
+  } catch (err) {
+    res.status(400).json('An error has occured');
+  }
 })
 
 // logs user out

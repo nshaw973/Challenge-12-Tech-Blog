@@ -10,11 +10,11 @@ router.post('/', withAuth, async (req, res) => {
       //Current user id
       user_id: req.session.user_id,
     });
-      // Takes the newpost const and posts into blog table
-      res.status(200).json(newComment)
-    } catch (err) {
-      res.status(400).json('Unable to create a new post')
-    };
+    // Takes the newpost const and posts into blog table
+    res.status(200).json(newComment)
+  } catch (err) {
+    res.status(400).json('Unable to create a new post')
+  };
 });
 
 module.exports = router

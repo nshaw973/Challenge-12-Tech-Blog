@@ -5,13 +5,13 @@ const updatePost = async (event) => {
     const post = document.querySelector('#content').value.trim();
     const id = document.querySelector('#edit').getAttribute('post-id')
 
-    if(title && post) {
+    if (title && post) {
         const response = await fetch(`/api/blogs/${id}`, {
-        method: 'PUT',
-        body: JSON.stringify({title, post}),
-        headers: { 'Content-Type': 'application/json' },
+            method: 'PUT',
+            body: JSON.stringify({ title, post }),
+            headers: { 'Content-Type': 'application/json' },
         });
-        
+
         if (response.ok) {
             document.location.replace('/dashboard');
         } else {

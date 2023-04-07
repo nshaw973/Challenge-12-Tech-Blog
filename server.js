@@ -14,19 +14,19 @@ const helpers = require('./utils/helpers')
 const hbs = exphbs.create({ helpers });
 
 const sess = {
-    secret: 'I am Error',
-    cookie: {
-      maxAge: 720000,
-      httpOnly: true,
-      secure: false,
-      sameSite: 'strict',
-    },
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-      db: sequelize
-    })
-  };
+  secret: 'I am Error',
+  cookie: {
+    maxAge: 720000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
 
 app.use(session(sess));
 
@@ -41,23 +41,23 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Kept gettting MIME Type errors for the logout.js and the edit.js files while
 // In the edit menu and this was the fix
-app.get('/dashboard/js/logout.js', function(req, res) {
+app.get('/dashboard/js/logout.js', function (req, res) {
   res.set('Content-Type', 'application/javascript');
   res.sendFile(__dirname + '/public/js/logout.js');
 });
 
-app.get('/dashboard/js/edit.js', function(req, res) {
+app.get('/dashboard/js/edit.js', function (req, res) {
   res.set('Content-Type', 'application/javascript');
   res.sendFile(__dirname + '/public/js/edit.js');
 });
 
 // For the view blog with comments page
-app.get('/blog/js/logout.js', function(req, res) {
+app.get('/blog/js/logout.js', function (req, res) {
   res.set('Content-Type', 'application/javascript');
   res.sendFile(__dirname + '/public/js/logout.js');
 });
 
-app.get('/blog/js/comment.js', function(req, res) {
+app.get('/blog/js/comment.js', function (req, res) {
   res.set('Content-Type', 'application/javascript');
   res.sendFile(__dirname + '/public/js/comment.js');
 });

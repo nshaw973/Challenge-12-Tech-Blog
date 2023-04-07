@@ -5,13 +5,13 @@ const createPost = async (event) => {
     const title = document.querySelector('#title').value.trim();
     const post = document.querySelector('#content').value.trim();
 
-    if(title && post) {
+    if (title && post) {
         const response = await fetch('/api/blogs', {
-        method: 'POST',
-        body: JSON.stringify({title, post}),
-        headers: { 'Content-Type': 'application/json' },
+            method: 'POST',
+            body: JSON.stringify({ title, post }),
+            headers: { 'Content-Type': 'application/json' },
         });
-        
+
         if (response.ok) {
             document.location.replace('/dashboard');
         } else {
@@ -34,7 +34,7 @@ const deletePost = async (event) => {
             const response = await fetch(`/api/blogs/${id}`, {
                 method: 'DELETE',
             });
-        
+
             if (response.ok) {
                 //reloads page to delete the post
                 document.location.replace('/dashboard');
@@ -49,7 +49,7 @@ const deletePost = async (event) => {
 const deleteButtons = document.querySelectorAll('.delete-btn');
 deleteButtons.forEach(button => {
     button.addEventListener('click', deletePost);
-  });
+});
 
 // Alert window to allow the user to confirm if they want to delete their post 
 const deleteConfirm = () => {

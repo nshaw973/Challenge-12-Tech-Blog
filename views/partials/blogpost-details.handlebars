@@ -1,9 +1,9 @@
 <div class="card" postId="{{id}}" userId="{{user_id}}">
   <div class="card-content">
     <a href="/blog/{{id}}" class="card-title">{{title}}</a>
-        {{#if user.name}}
-        <h3 class="post-author">Posted by: {{user.name}}</h3>
-        {{/if}}
+    {{#if user.name}}
+    <h3 class="post-author">Posted by: {{user.name}}</h3>
+    {{/if}}
   </div>
   <div class="card-body">
     <p class="card-text">{{post}}</p>

@@ -32,4 +32,11 @@ Comment.belongsTo(User, {
     foreignKey: 'user_id'
 })
 
+/* Comment.belongsTo(Blog, {
+    through: {
+        User
+    },
+    as: 'user_comment'
+}) */
+
 module.exports = { User, Blog, Comment }

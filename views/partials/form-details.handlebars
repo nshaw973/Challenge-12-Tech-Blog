@@ -1,10 +1,11 @@
 <form class="form-style">
     <label for="title">Title:</label>
     {{!-- Title --}}
-    <input type="text" id="title" name="title" {{#if blog.title}}value="{{blog.title}}"{{/if}}><br><br>
+    <input type="text" id="title" name="title" {{#if blog.title}}value="{{blog.title}}" {{/if}}><br><br>
     <label for="content">New Post:</label><br>
     {{!-- Post Body --}}
-    <textarea placeholder="Character Limit is 255" id="content" name="content" rows="10" cols="50" style="resize: none;">{{#if blog.post}}{{blog.post}}{{/if}}</textarea><br><br>
+    <textarea placeholder="Character Limit is 255" id="content" name="content" rows="10" cols="50"
+        style="resize: none;">{{#if blog.post}}{{blog.post}}{{/if}}</textarea><br><br>
     {{!-- Submit Button --}}
     <input type="submit" id="submit-post" value="Submit Post">
 </form>

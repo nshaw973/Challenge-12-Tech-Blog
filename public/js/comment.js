@@ -5,13 +5,13 @@ const createComment = async (event) => {
     const comment = document.querySelector('#comment').value.trim();
     const blog_id = document.querySelector('.card').getAttribute('postId')
 
-    if(comment) {
+    if (comment) {
         const response = await fetch('/api/comments', {
-        method: 'POST',
-        body: JSON.stringify({ comment, blog_id }),
-        headers: { 'Content-Type': 'application/json' },
+            method: 'POST',
+            body: JSON.stringify({ comment, blog_id }),
+            headers: { 'Content-Type': 'application/json' },
         });
-        
+
         if (response.ok) {
             document.location.reload()
         } else {
