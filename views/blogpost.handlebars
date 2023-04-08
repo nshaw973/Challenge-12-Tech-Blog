@@ -3,7 +3,7 @@
     {{#if comments}}
     {{#each comments as |comment|}}
     <div class="comment-container">
-        <h3 class="user-comment">{{comment.user.name}} -{{format_date comment.date_created}}</h3>
+        <h3 class="user-comment">{{comment.user.name}} - {{format_date comment.date_created}}</h3>
         <p class="indv-comment">{{comment.comment}}</p>
     </div>
     {{/each}}

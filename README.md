@@ -4,9 +4,76 @@
 
 [Deployed Tech Blog](https://limitless-harbor-65141.herokuapp.com/)
 
+## Screenshots
+
+![main page](./images/main-page.PNG)
+
 ## Task
 
-## Code Breakdown
+The task was to create a fully functional blog using the Model-View-Controller.
+Created a main page with all the posts.
+A login functionality that prompts the user to either log in, or create an account.
+When the user has either logged in or created their account, then they are taken to the dashboard
+which has all the current open blogposts created by the user, or none.
+The user will then be given the option to delete or edit a specific post.
+
+The main components here are the server.js that creates the server connection, from there a schema.sql file is used to create the database of techblog_db.
+a seed file is added for testing purposes, but for now its no longer necessary.
+
+then sequelize was used to create the models and handle the data in the database to be used in the front end, where handlebars is used to simplify the way the front-end looks like
+without having to hardcode a bunch of html, and having to create a bunch of js that will create the html elements.
+
+Partials where used to create each individual blogpost for different parts of the blog, same goes for the form since it was used to create the post, and then to edit the post.
+
+The way the front-end gets its data is from the database, is by doing fetches in the public folder that contains the various javascript files that uses
+the following methods: POST, PUT, DELETE.
+With those methods, the controllers then activate based on the parameter associated with that method.
+
+## How to use
+
+* Sign-Up:
+
+    * Click on the top right login button on the nav bar.
+
+    * You'll be taken to the login/sign-up page.
+
+    * Add in you name, email, and password.
+
+        * Be aware, must be an email not in use, and password minimum length is 8 characters.
+    
+    * Click on create account.
+
+    * Take note, the login time will last for 2 and a half minutes, which then you'll be logged out.
+
+* Dashboard:
+
+    * Once your account has been created, you'll be taken to the dashboard.
+
+    * You'll be given the option to create your own blogpost.
+
+    * Add a title for the post and then enter what your post will be. Remember max character limit is 255.
+
+    * Once completed, submit post, where it'll then populate in your dashboard, and in the homepage.
+
+    * With a new post in your account, you'll now have the ability to delete, or edit the post
+
+    * Delete removes the post, but you'll be asked if you're sure you want to, in order to prevent an accidental delete.
+
+    * When you select to Edit, you'll be taken to a new page with a form that has that blog populated, and the ability to edit the post. 
+
+    * Once it's edited, just submit and the updated post will be updated throught the site.
+
+* Main Page:
+
+    * To return to the homepage, click on "Tech-Blog" on the top left corner in the nav bar.
+
+    * If there were no posts prior, the main page will now contain your new post.
+
+    * To begin leaving comments in your post or on other peoples posts, click on the name of the post.
+
+    * You'll be taken a page for that specific post where if you're still logged in, you'll be given the option to add a comment.
+
+    * if you're not logged in, then the ability to add a comment won't be available, and you'll be asked to login.
 
 ## User Story
 

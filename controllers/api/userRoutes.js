@@ -26,7 +26,7 @@ router.post('/login', async (req, res) => {
     // Checking pasword with bcrypt, which is part of the user class model
     const validPassword = await userData.checkPassword(req.body.password);
     if (!validPassword) {
-      window.prompt('Error with login, check email or password and try again');
+      window.prompt('Email or Password is incorrect');
       return;
     }
     // after succesful login, saves the session data for the current user_id, and the logged in status turns to true

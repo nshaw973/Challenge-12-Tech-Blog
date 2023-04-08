@@ -36,9 +36,7 @@ const createUser = async (event) => {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert(
-        'Error with signup, name or email may be already taken, or password length is too short'
-      );
+      alert('Email already in use, or Password under 8 characters');
     }
   }
 };
