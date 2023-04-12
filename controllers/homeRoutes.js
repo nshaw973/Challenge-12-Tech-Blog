@@ -84,7 +84,7 @@ router.get('/:id', async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    console.log(err);
+    console.log('this is the error',err);
     res.redirect('/');
   }
 });
