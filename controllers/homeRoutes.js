@@ -70,7 +70,7 @@ router.get('/dashboard/:id', withAuth, async (req, res) => {
 });
 
 // Goes to a specific blogpost and it's corresponding comments
-router.get('/blog/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
       include: [{ model: User }, { model: Comment, include: ['user'] }],
