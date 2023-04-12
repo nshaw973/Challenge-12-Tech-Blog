@@ -85,8 +85,6 @@ router.get('/:id', async (req, res) => {
     });
   } catch (err) {
     res.redirect('/');
-    console.log('this is the',err);
-
   }
 });
 
