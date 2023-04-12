@@ -2,7 +2,7 @@
 
 ## Deployed Application
 
-[Deployed Tech Blog](https://limitless-harbor-65141.herokuapp.com/)
+[Deployed Tech Blog](https://challenge-12-tech-blog.herokuapp.com/)
 
 ## Screenshots
 
